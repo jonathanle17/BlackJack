@@ -21,7 +21,7 @@ public class Card
     }
     
     public String toString() {
-        String numStr;
+        String numStr = "Error";
         
         switch(this.myNumber) {
             
@@ -73,11 +73,11 @@ public class Card
             numStr = "King";
             break;
             
-        case 14:
+        case 1:
             numStr = "Ace";
             break;
         }
         
-        return numStr + " of " + mySuit
+        return numStr + " of " + mySuit.toString();
     }
 }
