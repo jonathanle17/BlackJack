@@ -13,6 +13,14 @@ public class Card
     
     public Card(Suit aSuit, int aNumber) {
       this.mySuit = aSuit;
+      
+      if (aNumber >= 1 && aNumber <= 13) {
+          this.myNumber = aNumber;
+      } else {
+          System.arr.println(aNumber + "is not a valid Card number");
+          System.exit(1);
+      }
+      
       this.myNumber = aNumber; 
     }
     

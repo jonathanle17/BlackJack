@@ -12,7 +12,12 @@ public class Deck
     
     private int numCards; // number of cards currently in deck
     
-    public Deck(int numDeck, boolean shuffle) {
+    public Deck() { 
+        //call the other constructor, defining one deck without shuffling
+        this(1, false);  
+    }
+    
+    public Deck(int numDecks, boolean shuffle) {
          this.numCards = numDecks * 52;
          this.myCards = new Card[this.numCards];
          
@@ -23,8 +28,17 @@ public class Deck
                  for (int n = 1; n <= 13; n++) { // for each number 
                     //add new card 
                     this.myCards[c] = new Card(Suit.values()[s], n);
+                    c++;
                  }
              }
          }
+         
+         if (shuffle) { //shuffle
+             this.shuffle();
+         }
+    }
+    
+    public void shuffle() {
+        
     }
 }
