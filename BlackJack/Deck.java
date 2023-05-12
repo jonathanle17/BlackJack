@@ -39,6 +39,30 @@ public class Deck
     }
     
     public void shuffle() {
+        //init random number generator 
+        Random rng = new Random();
         
+        //temp card
+        Card temp;
+        
+        int j;
+        for (int i = 0; i < this.numCards; i++) {
+            //get a random card j to swap i's value with
+            j = rng.nextInt(this.numCards);
+            
+            //do swap
+            temp = this.myCards[i];
+            this.myCards[i] = this.myCards[j];
+            this.myCards[j] = temp;
+        }
+    }
+    
+    public Card dealNextCard() {
+        //get top card
+        Card top = this.myCards[0];
+        
+        
+        
+        return top;
     }
 }
