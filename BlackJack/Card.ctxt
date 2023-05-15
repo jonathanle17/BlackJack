@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Card
+comment0.text=\n\ Write\ a\ description\ of\ class\ Card\ here.\n\ An\ implementation\ of\ a\ card\ type.\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=aSuit\ aNumber
+comment1.target=Card(Suit,\ int)
+comment2.params=
+comment2.target=int\ getNumber()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+numComments=4

@@ -61,8 +61,26 @@ public class Deck
         //get top card
         Card top = this.myCards[0];
         
+        //shift all cards to left by one index
+        for (int c = 1; c < this.numCards; c++) {
+            this.myCards[c-1] = this.myCards[c];
+        }
+        this.myCards[this.numCards-1] = null;
         
+        //decrement the number of cards in our deck
+        this.numCards--;
         
         return top;
+    }
+    
+    //Print the top cards in the deck
+    //numToPrint - the number of cards from the top of the deck to print
+    public void printDeck(int numToPrint) {
+        for (int c = 0; c < numToPrint; c++) {
+            System.out.printf("% 3d/%d %s\n", c+1, this.numCards,
+                    this.myCards[c].toString()); //review
+        }
+        System.out.printf("\t[%d others]\n", this.numCards-numToPrint); 
+        //review
     }
 }
