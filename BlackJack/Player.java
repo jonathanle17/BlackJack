@@ -60,7 +60,25 @@ public class Player
            }
        }
        
+       //if would've busted and has at least one ace, sets it to 1 instead 11
+       while (handSum > 21 && numAces > 0) {
+           handSum -= 10;
+           numAces--;
+       }
        
        return handSum;
+    }
+    
+    //print cards in player's hand
+    //showfirstCard whether first card is hidden or not
+    public void printHand(boolean showfirstCard) {
+        System.out.printf("%s's cards:\n", this.name);
+        for (int c = 0; c < this.numCards; c++) {
+            if (c == 0 && !showfirstCard) {
+                System.out.println("  [hidden]");
+            } else {
+                System.out.printf("  %s\n", this.hand[c].toString());
+            }
+        }
     }
 }

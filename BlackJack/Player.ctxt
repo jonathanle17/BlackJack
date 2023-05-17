@@ -9,4 +9,6 @@ comment3.params=aCard
 comment3.target=boolean\ addCard(Card)
 comment4.params=
 comment4.target=int\ getHandSum()
-numComments=5
+comment5.params=showfirstCard
+comment5.target=void\ printHand(boolean)
+numComments=6
