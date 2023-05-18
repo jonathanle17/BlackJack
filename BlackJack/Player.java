@@ -23,7 +23,6 @@ public class Player
         for (int c = 0; c < 10; c++) {
             this.hand[c] = null;
         }
-        this.emptyHand();
     }
     
     public boolean addCard(Card aCard) {
