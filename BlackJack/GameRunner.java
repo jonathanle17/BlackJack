@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class GameRunner
 {
     public static void main(String[] args) { 
-        int count = 2;
         for (int i = 0; i < 300; i++) {
+            int count = 2;
             Scanner sc = new Scanner(System.in);
             Deck theDeck = new Deck(1, true);
 
@@ -32,7 +32,7 @@ public class GameRunner
             boolean dealerDone = false;
             String ans;
 
-            while (!meDone && me.getHandSum() < 21) {
+            while (!meDone) {
                 if (!meDone) {
                     System.out.print("Hit or Stay? (Enter H or S): ");
                     ans = sc.next();
@@ -52,7 +52,7 @@ public class GameRunner
                     }
                 }
             }
-            while (!dealerDone && count > 2) {
+            while (!dealerDone && me.getHandSum() < 21) {
                 if (!dealerDone) {
                     if (dealer.getHandSum() < 17) {
                         System.out.println("The Dealer hits\n");
@@ -83,10 +83,10 @@ public class GameRunner
                 System.out.println("Draw.");
             }
 
-            else if (mySum < dealerSum && dealerSum < 21 || mySum > 21) {
+            else if (mySum < dealerSum && dealerSum <= 21 || mySum > 21) {
                 System.out.println("Dealer wins!");
             } 
-            else if (mySum == 21) {
+            else if (mySum == 21 && count == 2 ) {
                 System.out.println("BlackJack! You win.");
             }
             else {
