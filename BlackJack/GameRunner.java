@@ -10,6 +10,7 @@ public class GameRunner
     public static void main(String[] args) { 
         for (int i = 0; i < 300; i++) {
             int count = 2;
+            int dCount = 2;
             Scanner sc = new Scanner(System.in);
             Deck theDeck = new Deck(1, true);
 
@@ -57,6 +58,7 @@ public class GameRunner
                     if (dealer.getHandSum() < 17) {
                         System.out.println("The Dealer hits\n");
                         dealerDone = !dealer.addCard(theDeck.dealNextCard());
+                        dCount++;
                         dealer.printHand(false);
                     } else {
                         System.out.println("The Dealer stays\n");
@@ -75,6 +77,10 @@ public class GameRunner
             int mySum = me.getHandSum();
             int dealerSum = dealer.getHandSum();
             
+            if (dealerSum == 21 && dCount == 2) {
+                System.out.println("Dealer Blackjack. Dealer wins.");
+            }
+            
             if (mySum > 21) {
                 System.out.println("You Busted. Dealer wins.");
             }
@@ -83,7 +89,7 @@ public class GameRunner
                 System.out.println("Draw.");
             }
 
-            else if (mySum < dealerSum && dealerSum <= 21 || mySum > 21) {
+            else if (mySum < dealerSum && dealerSum <= 21) {
                 System.out.println("Dealer wins!");
             } 
             else if (mySum == 21 && count == 2 ) {
