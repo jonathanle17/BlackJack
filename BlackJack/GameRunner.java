@@ -11,6 +11,7 @@ public class GameRunner
         for (int i = 0; i < 300; i++) {
             int count = 2;
             int dCount = 2;
+            int done = 0;
             Scanner sc = new Scanner(System.in);
             Deck theDeck = new Deck(1, true);
 
@@ -31,6 +32,7 @@ public class GameRunner
 
             boolean meDone = false;
             boolean dealerDone = false;
+            boolean newGame = false;
             String ans;
 
             while (!meDone) {
@@ -48,8 +50,11 @@ public class GameRunner
                         System.out.println();
                         count++;
                     }
-                    else {
+                    if (ans.compareToIgnoreCase("S") == 0) {
                         meDone = true;
+                    }
+                    else {
+                        System.out.println();
                     }
                 }
             }
@@ -99,10 +104,23 @@ public class GameRunner
                 System.out.println("You win!");
             }
             
-            System.out.println("New hand? (Enter Y or N):");
+            while (!newGame) {
+                System.out.println("New hand? (Enter Y or N):");
+                ans = sc.next();
+                
+                if (ans.compareToIgnoreCase("N") == 0) {
+                    done++;
+                    break;
+                }
+                if (ans.compareToIgnoreCase("Y") == 0) {
+                    newGame = true;
+                }
+                else {
+                    System.out.println();
+                }
+            }
             
-            ans = sc.next();
-            if (ans.compareToIgnoreCase("N") == 0) {
+            if (done == 1) {
                 break;
             }
         }
